@@ -2,4 +2,6 @@
 
 Android Spinning Wheel Loading Animation 
 
-![](demo.gif)
+<br>
+<img width="400" src="https://github.com/dxtucson/SpinningWheel/blob/master/demo.gif" >
+<br>
