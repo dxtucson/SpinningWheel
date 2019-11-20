@@ -15,7 +15,7 @@ class SpinningWheel : View {
         private val cosValues = floatArrayOf(0.951f, 0.951f, 0.588f, 0f, -0.588f, -0.951f, -0.951f,	-0.588f, 0f, 0.588f)
         private val sinValues = floatArrayOf(-0.309f, 0.309f, 0.809f, 1.000f, 0.809f, 0.309f, -0.309f, -0.809f, -1f, -0.809f)
     }
-    
+
     private lateinit var spinnerPaint: Paint
     private lateinit var spinnerRect: RectF
     private val smallBarHPercentage = 0.112f
@@ -62,8 +62,13 @@ class SpinningWheel : View {
             )
             canvas?.save()
             canvas?.rotate(i * 36f - 18f, centerX + cosValues[i] * R, centerY + sinValues[i] * R)
-            spinnerPaint.alpha = 255 * (i + 1 - startIndex) / 10
-            canvas?.drawRoundRect(spinnerRect, 0.5f * smallBarHeight, 0.5f * smallBarHeight, spinnerPaint)
+            spinnerPaint.alpha = (25.5f * (i + 1 - startIndex) + 255f).toInt() % 255
+            canvas?.drawRoundRect(
+                spinnerRect,
+                0.5f * smallBarHeight,
+                0.5f * smallBarHeight,
+                spinnerPaint
+            )
             canvas?.restore()
         }
         handler.postDelayed({
